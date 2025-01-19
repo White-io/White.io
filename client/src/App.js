@@ -1,7 +1,7 @@
-import logo from './logo.svg'
-import './App.css'
+import logo from './logo.svg';
+import './App.css';
 //import React, { useEffect } from 'react';
-import { useEffect } from 'react'
+import { useEffect } from 'react';
 
 function App() {
   useEffect(() => {
@@ -9,8 +9,8 @@ function App() {
     fetch('/api')
       .then((response) => response.json())
       .then((data) => console.log(data))
-      .catch((error) => console.error('Error:', error))
-  }, []) // 빈 배열은 한 번만 실행되도록 함
+      .catch((error) => console.error('Error:', error));
+  }, []); // 빈 배열은 한 번만 실행되도록 함
 
   return (
     <div className="App">
@@ -29,7 +29,7 @@ function App() {
         </a>
       </header>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;

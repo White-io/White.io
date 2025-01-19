@@ -1,21 +1,25 @@
 {
-    "env": {
-      "browser": true,
-      "node": true,
-      "es2021": true
+  "env": {
+    "browser": true,
+    "node": true,
+    "es2021": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:prettier/recommended" // Prettier 통합
+  ],
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
     },
-    "extends": ["eslint:recommended", "plugin:react/recommended"],
-    "parserOptions": {
-      "ecmaFeatures": {
-        "jsx": true
-      },
-      "ecmaVersion": 12,
-      "sourceType": "module"
-    },
-    "plugins": ["react"],
-    "rules": {
-      "react/prop-types": "off",
-      "semi": ["error", "always"]
-    }
+    "ecmaVersion": 12,
+    "sourceType": "module"
+  },
+  "plugins": ["react", "prettier"], // Prettier 플러그인 추가
+  "rules": {
+    "react/prop-types": "off",
+    "semi": ["error", "always"],
+    "prettier/prettier": "error" // Prettier 규칙을 ESLint 에러로 표시
   }
-  
+}
