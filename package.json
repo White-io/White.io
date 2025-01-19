@@ -7,7 +7,7 @@
     "prettier": "^3.4.2"
   },
   "scripts": {
-    "lint": "eslint client/src server/src",
-    "format": "prettier --write client/src server/src"
+    "lint": "eslint client/src server",
+    "format": "prettier --write client/src server"
   }
 }
