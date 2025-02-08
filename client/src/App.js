@@ -1,27 +1,9 @@
 import React, { useState } from "react";
-import styled, { createGlobalStyle } from "styled-components";
+import styled from "styled-components";
+import { GlobalStyles } from "./styles/globalStyles"; //글로벌 스타일 불러오기
 import Menu from "./components/Menu";
 import Timer from "./components/Timer";
 import Logo from "./components/Logo";
-
-// 글로벌 스타일 적용
-const GlobalStyle = createGlobalStyle`
-  @font-face {
-    font-family: 'Helvetica Rounded Bold';
-    src: url('/fonts/HelveticaRoundedBold.otf') format('opentype'); /* public/fonts 경로로 수정 */
-  }
-  body {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    height: 100vh;
-    overflow: hidden;
-    background-image: url('/background.png');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-  }
-`;
 
 const CenteredContent = styled.div`
   position: absolute;
@@ -31,7 +13,6 @@ const CenteredContent = styled.div`
   color: #f1f1f1;
   font-size: 2.2rem;
   text-align: center;
-  font-family: 'Helvetica Rounded', sans-serif;
   font-weight: bold;
 `;
 
@@ -65,7 +46,8 @@ const App = () => {
 
   return (
     <>
-      <GlobalStyle />
+      <GlobalStyles />  {/* ✅ 글로벌 스타일 적용 */}
+      
       {!selectedSound ? (
         <LogoContainer>
           <Logo />

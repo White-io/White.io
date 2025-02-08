@@ -30,7 +30,7 @@ const Timer = ({ sound }) => {
     <TimerContainer>
       <TimerLabel>{sound} 재생 시간</TimerLabel>
       <TimerTime>
-        {minutes}:{seconds}
+        {minutes} : {seconds}
       </TimerTime>
     </TimerContainer>
   );

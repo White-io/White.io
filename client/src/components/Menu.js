@@ -1,5 +1,23 @@
 import React, { useState } from "react";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
+
+const slideIn = keyframes`
+  0% {
+    right: -300px;
+  }
+  100% {
+    right: 0;
+  }
+`;
+
+const slideOut = keyframes`
+  0% {
+    right: 0;
+  }
+  100% {
+    right: -300px;
+  }
+`;
 
 const MenuButton = styled.button`
   position: fixed;
@@ -16,17 +34,17 @@ const MenuButton = styled.button`
 const MenuContainer = styled.div`
   position: fixed;
   top: 0;
-  right: 0;
+  right: -300px;  // 초기에는 화면 밖에 위치
   width: 300px;
   height: 100vh;
   background: rgba(0, 0, 0, 0.5); /* 검정색 배경에 50% 투명도 */
   color: white;
   padding: 20px;
-  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.7);
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.7y);
   z-index: 40;
   overflow-y: auto;
+  animation: ${(props) => (props.isMenuOpen ? slideIn : slideOut)} 0.3s ease-out forwards; // 애니메이션 변경
 `;
-
 
 const MenuList = styled.ul`
   list-style: none;
@@ -93,7 +111,7 @@ const Menu = ({ onMenuSelect }) => {
     <div>
       <MenuButton onClick={toggleMenu}>☰</MenuButton>
       {isMenuOpen && (
-        <MenuContainer>
+        <MenuContainer isMenuOpen={isMenuOpen}>
           <MenuList>
             {Object.keys(themes).map((theme) => (
               <MenuItem key={theme} onClick={() => handleThemeClick(theme)}>
